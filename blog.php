@@ -4,6 +4,7 @@
 	
 	$conn = OpenCon();
 
+	// Making sure there only 5 blog posts per page
 	$record_count = $conn->query("SELECT * FROM posts");
 	$per_page = 5;
 	$pages = ceil($record_count->num_rows/$per_page);
