@@ -3,7 +3,7 @@
 	$result = $_GET['q'];
 
 	if($_GET['q'] !== ''){
-		$db = mysqli_connect('198.57.247.222', 'memobm09', 'rm*umxe-Wc8y', 'memobm09_blogPage');
+		$db = mysqli_connect('localhost', 'username', 'password', 'database');
 
 ?>
 
