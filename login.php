@@ -5,11 +5,12 @@
 
 	session_start();
 	$conn = OpenCon();
-
+	
 	if(isset($_POST['submit'])) {
 		$user = $_POST['username'];
 		$pwrd = $_POST['pwrd'];
 
+		//Making sure the user types in the required information
 		if (empty($user) || empty($pwrd)) {
 			echo "Missing Information";
 		} else {
