@@ -8,7 +8,8 @@
 	$record_count = $conn->query("SELECT * FROM posts");
 	$per_page = 5;
 	$pages = ceil($record_count->num_rows/$per_page);
-
+	
+	// Adding a next page feature based on the amount of posts 
 	if(isset($_GET['p']) && is_numeric($_GET['p'])) {
 		$page = $_GET['p'];
 	} else {
@@ -28,12 +29,12 @@
 
 <!DOCTYPE html>
   	<head>
-	  	<title>Guillermo Barragan - Blog</title>
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	    <link rel="stylesheet" type="text/css" href="assets/blog.css">
+		<title>Guillermo Barragan - Blog</title>
+		<meta charset="utf-8">
+	    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    	<link rel="stylesheet" type="text/css" href="assets/blog.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-	    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+	    	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
   	</head>
 
   	<body>
@@ -63,7 +64,8 @@
 
 	    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
 	        <div class="col-md-6 px-0">
-	        	<?php 
+	        	<?php
+				// Addong a feautre section to spotlight a blog post where only a a portion of the posts appears as preview
 	        		$feature = $conn->query("SELECT post_title, LEFT(post_body, 120) AS post_body, post_id FROM posts WHERE category_id = 2");
 
 					while ($row = $feature->fetch_object()) {
@@ -83,8 +85,8 @@
 	      	<div class="row">
 	        	<div class="col-md-8 blog-main">
 	   				
-	   				<?php 
-
+	   				<?php
+						// Adding a preview of each posts on the home blog page
 	   					if($query = $conn->prepare("SELECT post_id, post_title, post_author, LEFT(post_body, 250) AS post_body, DATE_FORMAT(posted, '%M %e, %Y') FROM posts ORDER BY post_id DESC LIMIT $start, $per_page")) {
 							
 							$query->execute();
