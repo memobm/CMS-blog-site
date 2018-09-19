@@ -12,7 +12,6 @@
 			$title = $n['post_title'];
 			$author = $n['post_author'];
 			$body = $n['post_body'];
-			//$id = $n['category_id'];
 		}
 	}
 
