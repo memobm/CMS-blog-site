@@ -1,6 +1,7 @@
 <?php 
 	session_start();
-	$db = mysqli_connect('198.57.247.222', 'memobm09', 'rm*umxe-Wc8y', 'memobm09_blogPage');
+	//Change the information to what goes in there instead of the actual info to connect to the db
+	$db = mysqli_connect('localhost', 'username', 'password', 'database');
 
 	if(!isset($_SESSION['user_id'])) {
 		header('Location: login.php');
