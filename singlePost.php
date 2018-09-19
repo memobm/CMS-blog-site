@@ -3,7 +3,8 @@
 	include 'php/includes/config.php';
 	
 	$conn = OpenCon();
-
+	
+	//Making sure the user directs to an existing article otherwise redirect them to the blog home page
 	if(!isset($_GET['id'])) {
 		header('Location: blog.php');
 		exit();
@@ -37,7 +38,7 @@
   	</head>
   	<body>
   		<div id="fb-root"></div>
-
+		<!-- Adding a facebook plugin for a comment section -->
 		<script>(function(d, s, id) {
   			var js, fjs = d.getElementsByTagName(s)[0];
 			if (d.getElementById(id)) return;
